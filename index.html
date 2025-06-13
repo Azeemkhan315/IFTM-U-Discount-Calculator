@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>फीस छूट कैलकुलेटर</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>फीस छूट कैलकुलेटर</h1>
+        
+        <div class="form-group">
+            <label for="fees">अपनी फीस दर्ज करें:</label>
+            <input type="number" id="fees" placeholder="कुल फीस राशि">
+        </div>
+        
+        <div class="form-group">
+            <label for="discount">अपना छूट प्रतिशत दर्ज करें:</label>
+            <input type="number" id="discount" placeholder="छूट प्रतिशत">
+        </div>
+        
+        <button onclick="calculateFee()">गणना करें</button>
+        
+        <div id="result" class="result">
+            <div class="result-item">
+                आपका छूट है: <span id="discountAmount" class="highlight"></span>
+            </div>
+            <div class="result-item">
+                पहले सेमिस्टर में <span id="firstSemester" class="highlight"></span> जमा करना है
+            </div>
+            <div class="result-item">
+                दुसरे सेमिस्टर में <span id="secondSemester" class="highlight"></span> जमा करना है
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateFee() {
+            // Get input values
+            const fees = parseFloat(document.getElementById('fees').value);
+            const discountPercent = parseFloat(document.getElementById('discount').value);
+            
+            // Validate inputs
+            if (isNaN(fees) || isNaN(discountPercent)) {
+                alert("कृपया सही मान दर्ज करें");
+                return;
+            }
+            
+            // Calculate values
+            const num2 = fees - 10000;
+            const discountAmount = (num2 * discountPercent) / 100;
+            const half = fees / 2;
+            const totalFee = half - discountAmount;
+            
+            // Display results
+            document.getElementById('discountAmount').textContent = discountAmount.toFixed(2);
+            document.getElementById('firstSemester').textContent = half.toFixed(2);
+            document.getElementById('secondSemester').textContent = totalFee.toFixed(2);
+            
+            // Show result section
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
