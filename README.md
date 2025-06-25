@@ -46,5 +46,5 @@ https://azeemkhan315.github.io/IFTM-U-Discount-Calculator/
 
 Preview
 
-![Fee Calculator Screenshot](Fee calculoter.jpg)
+![Fee Calculator Screenshot](IFTM-FeeDiscountCal.jpg)
 
