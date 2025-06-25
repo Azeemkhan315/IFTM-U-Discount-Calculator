@@ -44,4 +44,7 @@ Second semester fee after discount
 Live Demo
 https://azeemkhan315.github.io/IFTM-U-Discount-Calculator/
 
+Preview
+
+![Fee Calculator Screenshot](Fee calculoter.jpg)
 
